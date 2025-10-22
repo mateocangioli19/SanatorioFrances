@@ -1,11 +1,5 @@
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./turnos.db', (err) => {
-  if (err) {
-    console.error('❌ Error al conectar con la BD:', err.message);
-  } else {
-    console.log('✅ Conectado a SQLite.');
-  }
-});
+const Database = require('better-sqlite3');
+const db = new Database('./turnos.db', { verbose: console.log });
 
 // Crear tabla si no existe
 db.serialize(() => {
