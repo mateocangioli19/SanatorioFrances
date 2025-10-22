@@ -1,0 +1,60 @@
+.llamador-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', sans-serif;
+}
+  
+.encabezado {
+    height: 100px;
+}
+  
+.contenido {
+    flex-grow: 1;
+    display: flex;
+}
+  
+.columna-turnos {
+    width: 40%;
+}
+  
+.celda-turno {
+    min-height: 120px;
+    background-color: #e9ecef;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.5rem;
+    border: 3px solid #dee2e6;
+  }
+  
+.columna-imagen {
+    width: 60%;
+    overflow: hidden;
+}
+
+@keyframes flash {
+    0% { background-color: #ffc107; }
+    50% { background-color: #fff3cd; }
+    100% { background-color: #ffc107; }
+}
+  
+.destacar {
+    animation: flash 1s ease-in-out infinite;
+}
+
+.turno-actual {
+    background-color: #6f42c1 !important; /* Violeta Bootstrap */
+    color: white;
+    animation: parpadeo 1.5s ease-in-out infinite;
+    box-shadow: 0 0 10px #6f42c1;
+}
+  
+@keyframes parpadeo {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.85;
+    }
+}
+  

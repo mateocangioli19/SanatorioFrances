@@ -1,0 +1,172 @@
+/* ================================
+   ESTILO GENERAL DEL TOTEM (VERSIÓN TOTEM VERTICAL)
+================================== */
+.totem-container {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(180deg, #e8f0ff 0%, #f8fbff 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* <-- CENTRA TODO VERTICALMENTE */
+  align-items: center;
+  text-align: center;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  overflow: hidden;
+  position: relative;
+  padding-top: 2vh; /* reducido para evitar empujar contenido hacia abajo */
+  box-sizing: border-box;
+}
+
+/* ================================
+   LOGO Y ENCABEZADO
+================================== */
+/* tu clase .logo en CSS original no se usa en el JSX; usamos logo-img */
+.logo-img {
+  width: 800px;      /* ajustalo si querés más chico/grande */
+  max-width: 60%;
+  height: auto;
+  margin-bottom: 200px;
+  display: block;
+}
+
+/* Mantengo instrucciones con tu estilo */
+.instrucciones {
+  font-size: 2.0rem;
+  color: #333;
+  margin-bottom: 12px; /* reducido para acercar botones */
+  font-weight: 500;
+  max-width: 700px;
+  padding: 0 1rem;
+}
+
+/* ================================
+   CONTENEDOR DE BOTONES
+================================== */
+.botones-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* centra los botones dentro del bloque */
+  gap: 16px;               /* espacio consistente entre botones */
+  width: 100%;
+  max-width: 480px;
+  height: auto;            /* importante: que se ajuste al contenido */
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+/* ================================
+   BOTONES
+================================== */
+.btn-totem {
+  width: 80%;
+  max-width: 480px;
+  padding: 60px 0; /* Aumenta el padding para hacer los botones más altos */
+  font-size: 2.6rem; /* Aumenta el tamaño de la fuente */
+  font-weight: 900;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 28px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.20s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* hover / active mantienen la experiencia */
+.btn-totem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+.btn-totem:active { transform: scale(0.98); }
+
+/* COLORES SEGÚN SECCIÓN (mismos que usabas) */
+.btn-turno {
+  background: linear-gradient(135deg, #0056b3, #007bff);
+}
+
+.btn-extraccion {
+  background: linear-gradient(135deg, #d60000, #ff4040);
+}
+
+.btn-programar {
+  background: linear-gradient(135deg, #0d99a5, #17a2b8);
+}
+
+/* ================================
+   RESPONSIVE ESPECIAL PARA TOTEM VERTICAL
+================================== */
+@media screen and (max-width: 1080px), screen and (orientation: portrait) {
+  .totem-container {
+    padding-top: 2vh; /* ya reducido */
+  }
+
+  .instrucciones {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+  }
+
+  .botones-container {
+    margin-top: 6px;
+    gap: 12px;
+    padding-bottom: 3vh; /* asegura margen inferior en pantallas chicas */
+  }
+
+  .btn-totem {
+    padding: 36px 0; /* más compacto en pantallas chicas */
+    margin: 0;
+    font-size: 2.0rem;
+  }
+
+ 
+}
+
+/* ================================
+   TURNO EMERGENTE (sin cambios funcionales)
+================================== */
+.turno-emergente {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 50px 60px;
+  border-radius: 25px;
+  box-shadow: 0 0 50px rgba(0,0,0,0.35);
+  text-align: center;
+  border-top: 6px solid #007bff;
+  animation: emerger 0.5s ease-out;
+  z-index: 60;
+}
+
+@keyframes emerger {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.turno-emergente h3 {
+  font-size: 2.2rem;
+  color: #003366;
+  margin-bottom: 15px;
+}
+
+.turno-emergente .turno-numero {
+  font-size: 6rem;
+  font-weight: 800;
+  color: #28a745;
+  text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.turno-emergente p {
+  font-size: 1.6rem;
+  margin-top: 15px;
+  color: #444;
+}
